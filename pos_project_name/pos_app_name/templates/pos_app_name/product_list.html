@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product.get_name }}
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="product" value="{{ product.get_name }}">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
